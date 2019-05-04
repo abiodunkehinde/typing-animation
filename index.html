@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Typing</title>
+  <style>
+    body { background: #1e1e2f; color: #0ff; height: 100vh; display: flex; justify-content: center; align-items: center; margin: 0; font-family: monospace; font-size: 2em; }
+    .cursor { animation: blink 1s infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+  </style>
+</head>
+<body>
+  <div id="text">Welcome to my portfolio...<span class="cursor">|</span></div>
+  <script>
+    const text = "Welcome to my portfolio...";
+    let i = 0;
+    const el = document.getElementById('text');
+    const type = setInterval(() => {
+      el.textContent = text.substring(0, i) + "|";
+      if(++i > text.length) clearInterval(type);
+    }, 100);
+  </script>
+</body>
+</html>
